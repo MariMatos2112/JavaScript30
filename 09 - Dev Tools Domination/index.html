@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "Hugo", age: 8 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log(`Autocorrect can go straight to he’ll.`);
+
+      // Interpolated
+      console.log(
+        "Did you hear about the monkeys who shared an Amazon account?",
+        "They were Prime mates."
+      );
+
+      // Styled
+      console.log(
+        '%c "Whoever said that the definition of insanity is doing the same thing over and over again and expecting different results has obviously never had to reboot a computer."',
+        "color: #fa7e61; font-size: 20px"
+      );
+
+      // Warning!
+      console.warn(
+        'Q. What is the biggest lie in the entire universe? A. "I have read and agree to the Terms & Conditions."'
+      );
+
+      // Error :|
+      console.error(
+        "Q. How does a computer get drunk? A. It takes screenshots."
+      );
+
+      // Info
+      console.info(
+        "Q. Why did the PowerPoint Presentation cross the road? A. To get to the other slide."
+      );
+
+      // Testing
+      console.assert("hey" === "hei", "Something wrong is not right.");
+
+      // Clearing
+      //console.clear();
+
+      // Viewing DOM Elements
+      const paragraph = document.querySelector("p");
+      console.log(paragraph);
+      console.dir(paragraph);
+
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.groupCollapsed(dog.name);
+        console.log("Name:", dog.name);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`It is equal to ${dog.age * 7} in human years.`);
+        console.groupEnd(dog.name);
+      });
+
+      // Counting
+      console.count(dogs[1].name);
+      console.count(dogs[1].name);
+      console.count(dogs[1].name);
+
+      // Table
+      console.table(dogs);
+
+      // Timing
+      console.time("Time to get a Chuck Norris joke");
+      fetch("https://api.chucknorris.io/jokes/random")
+        .then((response) => response.json())
+        .then((data) => {
+          console.timeEnd("Time to get a Chuck Norris joke");
+          console.log(data.value);
+        });
+    </script>
+  </body>
+</html>
