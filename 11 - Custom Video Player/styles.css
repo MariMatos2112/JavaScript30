@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(28, 82, 255);
+  background: linear-gradient(90deg, #118ab243 0%, #118ab267 35%, #118ab2 100%);
+}
+
+.player {
+  position: relative;
+  margin-left: 13.75vw;
+  margin-top: 10vh;
+  width: 72.5vw;
+  height: 80vh;
+  border: 3px solid #fff;
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+}
+
+.player .player__controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  padding: 0 15px 0 15px;
+}
+
+.player:hover .player__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player .player__controls .toggle,
+.player .player__controls #skipBackwards,
+.player .player__controls #skipForward,
+.player .player__controls #volumeInput,
+.player .player__controls #speedInput {
+  width: 15%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.05s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  height: 80%;
+  filter: grayscale(1);
+  font-size: 20px;
+  color: #118ab2;
+  font-weight: bold;
+}
+
+.player .player__controls .toggle:hover,
+.player .player__controls #skipBackwards:hover,
+.player .player__controls #skipForward:hover,
+.player .player__controls #volumeInput:hover,
+.player .player__controls #speedInput:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  filter: grayscale(0);
+}
+
+.player .player__controls .toggle:focus,
+.player .player__controls #skipBackwards:focus,
+.player .player__controls #skipForward:focus,
+.player .player__controls #speedInput:focus {
+  outline: none;
+}
+
+.player .toggle img,
+.player #skipBackwards img,
+.player #skipForward img {
+  height: 80%;
+}
+
+.player .toggle #pauseIcon {
+  display: none;
+}
